@@ -1,27 +1,19 @@
-import { Navbar } from "@/components/layout/Navbar"
-import { Footer } from "@/components/layout/Footer"
-import { Hero } from "@/components/sections/Hero"
-import { Features } from "@/components/sections/Features"
-import { Pricing } from "@/components/sections/Pricing"
-import { Testimonials } from "@/components/sections/Testimonials"
-import { FAQ } from "@/components/sections/FAQ"
-import { CTA } from "@/components/sections/CTA"
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import HomePage from './pages/HomePage';
+import FeaturesPage from './pages/FeaturesPage';
+import PricingPage from './pages/PricingPage';
+import ContactPage from './pages/ContactPage';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
-        <Hero />
-        <Features />
-        <Pricing />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-      </main>
-      <Footer />
-    </div>
-  )
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
+  );
 }
-
-export default App
