@@ -24,10 +24,10 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer data-fc-id="Footer-root" className="border-t border-zinc-800/50 pt-16 pb-10 px-6 relative">
+    <footer data-fc-id="Footer-root" className="border-t border-zinc-800/50 pt-16 pb-10 px-6 md:px-10 lg:px-16 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[1px] bg-gradient-to-r from-transparent via-accent-500/30 to-transparent" />
 
-      <div data-fc-id="Footer-inner" className="max-w-6xl mx-auto">
+      <div data-fc-id="Footer-inner" className="max-w-7xl mx-auto">
         <div data-fc-id="Footer-grid" className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
           {/* Brand col */}
           <div data-fc-id="Footer-brand" className="col-span-2">

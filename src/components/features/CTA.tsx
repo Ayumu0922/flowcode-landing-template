@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section data-fc-id="CTA-root" className="py-28 px-6 relative overflow-hidden">
+    <section data-fc-id="CTA-root" className="py-28 px-6 md:px-10 lg:px-16 relative overflow-hidden">
       {/* Atmospheric glow */}
       <div data-fc-id="CTA-glow" className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[300px] bg-accent-500/10 rounded-full blur-[120px]" />
@@ -15,7 +15,7 @@ export default function CTA() {
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto relative"
+        className="max-w-5xl mx-auto relative"
       >
         <div className="relative glass-strong rounded-3xl p-12 md:p-16 text-center overflow-hidden">
           {/* Background pattern */}

@@ -6,11 +6,11 @@ import { features } from '../data/features';
 export default function FeaturesPage() {
   return (
     <PageTransition>
-      <div data-fc-id="FeaturesPage-root" className="py-28 px-6 relative">
+      <div data-fc-id="FeaturesPage-root" className="py-28 px-6 md:px-10 lg:px-16 relative">
         {/* Decorative orb */}
         <div className="absolute top-[-5%] right-[10%] w-[400px] h-[400px] bg-accent-500/8 blur-[120px] pointer-events-none" />
 
-        <div data-fc-id="FeaturesPage-inner" className="max-w-6xl mx-auto relative">
+        <div data-fc-id="FeaturesPage-inner" className="max-w-7xl mx-auto relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} data-fc-id="FeaturesPage-header" className="text-center mb-20">
             <span className="text-xs font-semibold text-accent-400 uppercase tracking-[0.2em] mb-3 block">Features</span>
             <h1 className="text-4xl md:text-6xl font-black text-foreground tracking-tight mb-5">すべての機能</h1>

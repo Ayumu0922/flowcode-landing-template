@@ -41,11 +41,11 @@ export default function PricingPage() {
 
   return (
     <PageTransition>
-      <div data-fc-id="PricingPage-root" className="py-28 px-6 relative">
+      <div data-fc-id="PricingPage-root" className="py-28 px-6 md:px-10 lg:px-16 relative">
         {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-accent-500/8 blur-[120px] pointer-events-none" />
 
-        <div data-fc-id="PricingPage-inner" className="max-w-5xl mx-auto relative">
+        <div data-fc-id="PricingPage-inner" className="max-w-6xl mx-auto relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} data-fc-id="PricingPage-header" className="text-center mb-12">
             <span className="text-xs font-semibold text-accent-400 uppercase tracking-[0.2em] mb-3 block">Pricing</span>
             <h1 className="text-4xl md:text-5xl font-black text-foreground tracking-tight mb-4">料金プラン</h1>

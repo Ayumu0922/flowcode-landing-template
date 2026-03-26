@@ -12,12 +12,12 @@ const contactInfo = [
 export default function ContactPage() {
   return (
     <PageTransition>
-      <div data-fc-id="ContactPage-root" className="py-28 px-6 relative">
+      <div data-fc-id="ContactPage-root" className="py-28 px-6 md:px-10 lg:px-16 relative">
         {/* Background pattern */}
         <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
         <div className="absolute top-0 right-[20%] w-[400px] h-[400px] bg-accent-500/5 blur-[120px] pointer-events-none" />
 
-        <div data-fc-id="ContactPage-inner" className="max-w-4xl mx-auto relative">
+        <div data-fc-id="ContactPage-inner" className="max-w-5xl mx-auto relative">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} data-fc-id="ContactPage-header" className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-500/10 mb-5">
               <MessageCircle className="w-7 h-7 text-accent-400" />

@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header data-fc-id="Header-root" className="sticky top-0 z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="w-full px-6 md:px-10 lg:px-16 py-4 flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-2">
           <Zap className="w-6 h-6 text-accent-500" />
           <span className="text-lg font-bold text-foreground">SaaSify</span>

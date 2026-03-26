@@ -51,9 +51,9 @@ function AnimatedCounter({ target, suffix, prefix }: { target: number; suffix: s
 
 export default function StatsSection() {
   return (
-    <section data-fc-id="StatsSection-root" className="py-24 px-6 relative">
+    <section data-fc-id="StatsSection-root" className="py-24 px-6 md:px-10 lg:px-16 relative">
       <div data-fc-id="StatsSection-bg" className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-500/[0.03] to-transparent pointer-events-none" />
-      <div data-fc-id="StatsSection-inner" className="max-w-5xl mx-auto">
+      <div data-fc-id="StatsSection-inner" className="max-w-7xl mx-auto">
         <div data-fc-id="StatsSection-grid" className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, i) => (
             <motion.div
