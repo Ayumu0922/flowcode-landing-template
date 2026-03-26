@@ -1,3 +1,4 @@
+import PageTransition from '../components/ui/PageTransition';
 import Hero from '../components/features/Hero';
 import FeatureCard from '../components/features/FeatureCard';
 import TestimonialCard from '../components/features/TestimonialCard';
@@ -7,7 +8,7 @@ import { testimonials } from '../data/testimonials';
 
 export default function HomePage() {
   return (
-    <>
+    <PageTransition>
       <Hero />
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
@@ -31,6 +32,6 @@ export default function HomePage() {
         </div>
       </section>
       <CTA />
-    </>
+    </PageTransition>
   );
 }

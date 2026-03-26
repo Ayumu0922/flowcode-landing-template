@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
+import PageTransition from '../components/ui/PageTransition';
 import PricingCard from '../components/features/PricingCard';
 import { plans } from '../data/pricing';
 
 export default function PricingPage() {
   return (
+    <PageTransition>
     <div className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
@@ -17,5 +19,6 @@ export default function PricingPage() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }

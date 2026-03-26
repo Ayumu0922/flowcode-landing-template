@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
+import PageTransition from '../components/ui/PageTransition';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import ContactForm from '../components/features/ContactForm';
 
 export default function ContactPage() {
   return (
+    <PageTransition>
     <div className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
@@ -30,5 +32,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 }
