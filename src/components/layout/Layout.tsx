@@ -4,9 +4,9 @@ import Footer from './Footer';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col">
+    <div data-fc-id="Layout-root" className="min-h-screen bg-zinc-950 flex flex-col noise">
       <Header />
-      <main className="flex-1">
+      <main data-fc-id="Layout-main" className="flex-1">
         <Outlet />
       </main>
       <Footer />

@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Default accent: Slate (monotone) */
   --color-accent-50: #f8fafc;
   --color-accent-100: #f1f5f9;
   --color-accent-200: #e2e8f0;
@@ -13,10 +13,96 @@
   --color-accent-800: #1e293b;
   --color-accent-900: #0f172a;
   --color-accent-950: #020617;
-
-  /* Semantic tokens */
   --color-foreground: #fafafa;
   --color-on-accent: #ffffff;
+  --font-display: 'DM Sans', 'Noto Sans JP', system-ui, sans-serif;
+  --font-body: 'Noto Sans JP', 'DM Sans', system-ui, sans-serif;
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); }
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Dot grid pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Gradient glow orb keyframes */
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-10px, 15px) scale(0.95); }
+  75% { transform: translate(-25px, -10px) scale(1.02); }
+}
+
+@keyframes orb-float-alt {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-20px, 25px) scale(1.08); }
+  66% { transform: translate(15px, -15px) scale(0.96); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-orb { animation: orb-float 20s ease-in-out infinite; }
+.animate-orb-alt { animation: orb-float-alt 25s ease-in-out infinite; }
+.animate-shimmer { animation: shimmer 3s ease-in-out infinite; background-size: 200% 100%; }
+.animate-marquee { animation: marquee 30s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+.glass-strong {
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+}
+
+/* Gradient border wrapper */
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--color-accent-500), transparent 50%, var(--color-accent-600));
+}
+
+.gradient-border > * {
+  border-radius: calc(1rem - 1px);
 }
 
 /* ───── Light mode ───── */
@@ -36,157 +122,80 @@
   color-scheme: light;
 }
 
-/* Mono accent: darken for light bg contrast */
+.theme-light .noise::after { opacity: 0.03; }
+.theme-light .dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+}
+.theme-light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(228, 228, 231, 0.8);
+}
+.theme-light .glass-strong {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(228, 228, 231, 0.9);
+}
+
 .theme-light:not([data-color]),
 .theme-light[data-color="mono"] {
   --color-accent-400: #475569;
   --color-accent-500: #334155;
   --color-accent-600: #1e293b;
 }
-
-/* Light mode accent contrast adjustments (400/500 used for text) */
-.theme-light[data-color="blue"] {
-  --color-accent-400: #2563eb;
-  --color-accent-500: #1d4ed8;
-}
-.theme-light[data-color="teal"] {
-  --color-accent-400: #0d9488;
-  --color-accent-500: #0f766e;
-}
-.theme-light[data-color="emerald"] {
-  --color-accent-400: #059669;
-  --color-accent-500: #047857;
-}
-.theme-light[data-color="rose"] {
-  --color-accent-400: #e11d48;
-  --color-accent-500: #be123c;
-}
-.theme-light[data-color="violet"] {
-  --color-accent-400: #7c3aed;
-  --color-accent-500: #6d28d9;
-}
-.theme-light[data-color="amber"] {
-  --color-accent-400: #d97706;
-  --color-accent-500: #b45309;
-}
-.theme-light[data-color="cyan"] {
-  --color-accent-400: #0891b2;
-  --color-accent-500: #0e7490;
-}
-.theme-light[data-color="orange"] {
-  --color-accent-400: #ea580c;
-  --color-accent-500: #c2410c;
-}
+.theme-light[data-color="blue"] { --color-accent-400: #2563eb; --color-accent-500: #1d4ed8; }
+.theme-light[data-color="teal"] { --color-accent-400: #0d9488; --color-accent-500: #0f766e; }
+.theme-light[data-color="emerald"] { --color-accent-400: #059669; --color-accent-500: #047857; }
+.theme-light[data-color="rose"] { --color-accent-400: #e11d48; --color-accent-500: #be123c; }
+.theme-light[data-color="violet"] { --color-accent-400: #7c3aed; --color-accent-500: #6d28d9; }
+.theme-light[data-color="amber"] { --color-accent-400: #d97706; --color-accent-500: #b45309; }
+.theme-light[data-color="cyan"] { --color-accent-400: #0891b2; --color-accent-500: #0e7490; }
+.theme-light[data-color="orange"] { --color-accent-400: #ea580c; --color-accent-500: #c2410c; }
 
 /* ───── Color themes ───── */
 [data-color="blue"] {
-  --color-accent-50: #eff6ff;
-  --color-accent-100: #dbeafe;
-  --color-accent-200: #bfdbfe;
-  --color-accent-300: #93c5fd;
-  --color-accent-400: #60a5fa;
-  --color-accent-500: #3b82f6;
-  --color-accent-600: #2563eb;
-  --color-accent-700: #1d4ed8;
-  --color-accent-800: #1e40af;
-  --color-accent-900: #1e3a8a;
-  --color-accent-950: #172554;
+  --color-accent-50: #eff6ff; --color-accent-100: #dbeafe; --color-accent-200: #bfdbfe;
+  --color-accent-300: #93c5fd; --color-accent-400: #60a5fa; --color-accent-500: #3b82f6;
+  --color-accent-600: #2563eb; --color-accent-700: #1d4ed8; --color-accent-800: #1e40af;
+  --color-accent-900: #1e3a8a; --color-accent-950: #172554;
 }
-
 [data-color="teal"] {
-  --color-accent-50: #f0fdfa;
-  --color-accent-100: #ccfbf1;
-  --color-accent-200: #99f6e4;
-  --color-accent-300: #5eead4;
-  --color-accent-400: #2dd4bf;
-  --color-accent-500: #14b8a6;
-  --color-accent-600: #0d9488;
-  --color-accent-700: #0f766e;
-  --color-accent-800: #115e59;
-  --color-accent-900: #134e4a;
-  --color-accent-950: #042f2e;
+  --color-accent-50: #f0fdfa; --color-accent-100: #ccfbf1; --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4; --color-accent-400: #2dd4bf; --color-accent-500: #14b8a6;
+  --color-accent-600: #0d9488; --color-accent-700: #0f766e; --color-accent-800: #115e59;
+  --color-accent-900: #134e4a; --color-accent-950: #042f2e;
 }
-
 [data-color="emerald"] {
-  --color-accent-50: #ecfdf5;
-  --color-accent-100: #d1fae5;
-  --color-accent-200: #a7f3d0;
-  --color-accent-300: #6ee7b7;
-  --color-accent-400: #34d399;
-  --color-accent-500: #10b981;
-  --color-accent-600: #059669;
-  --color-accent-700: #047857;
-  --color-accent-800: #065f46;
-  --color-accent-900: #064e3b;
-  --color-accent-950: #022c22;
+  --color-accent-50: #ecfdf5; --color-accent-100: #d1fae5; --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7; --color-accent-400: #34d399; --color-accent-500: #10b981;
+  --color-accent-600: #059669; --color-accent-700: #047857; --color-accent-800: #065f46;
+  --color-accent-900: #064e3b; --color-accent-950: #022c22;
 }
-
 [data-color="rose"] {
-  --color-accent-50: #fff1f2;
-  --color-accent-100: #ffe4e6;
-  --color-accent-200: #fecdd3;
-  --color-accent-300: #fda4af;
-  --color-accent-400: #fb7185;
-  --color-accent-500: #f43f5e;
-  --color-accent-600: #e11d48;
-  --color-accent-700: #be123c;
-  --color-accent-800: #9f1239;
-  --color-accent-900: #881337;
-  --color-accent-950: #4c0519;
+  --color-accent-50: #fff1f2; --color-accent-100: #ffe4e6; --color-accent-200: #fecdd3;
+  --color-accent-300: #fda4af; --color-accent-400: #fb7185; --color-accent-500: #f43f5e;
+  --color-accent-600: #e11d48; --color-accent-700: #be123c; --color-accent-800: #9f1239;
+  --color-accent-900: #881337; --color-accent-950: #4c0519;
 }
-
 [data-color="violet"] {
-  --color-accent-50: #f5f3ff;
-  --color-accent-100: #ede9fe;
-  --color-accent-200: #ddd6fe;
-  --color-accent-300: #c4b5fd;
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b5cf6;
-  --color-accent-600: #7c3aed;
-  --color-accent-700: #6d28d9;
-  --color-accent-800: #5b21b6;
-  --color-accent-900: #4c1d95;
-  --color-accent-950: #2e1065;
+  --color-accent-50: #f5f3ff; --color-accent-100: #ede9fe; --color-accent-200: #ddd6fe;
+  --color-accent-300: #c4b5fd; --color-accent-400: #a78bfa; --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed; --color-accent-700: #6d28d9; --color-accent-800: #5b21b6;
+  --color-accent-900: #4c1d95; --color-accent-950: #2e1065;
 }
-
 [data-color="amber"] {
-  --color-accent-50: #fffbeb;
-  --color-accent-100: #fef3c7;
-  --color-accent-200: #fde68a;
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
-  --color-accent-700: #b45309;
-  --color-accent-800: #92400e;
-  --color-accent-900: #78350f;
-  --color-accent-950: #451a03;
+  --color-accent-50: #fffbeb; --color-accent-100: #fef3c7; --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d; --color-accent-400: #fbbf24; --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706; --color-accent-700: #b45309; --color-accent-800: #92400e;
+  --color-accent-900: #78350f; --color-accent-950: #451a03;
 }
-
 [data-color="cyan"] {
-  --color-accent-50: #ecfeff;
-  --color-accent-100: #cffafe;
-  --color-accent-200: #a5f3fc;
-  --color-accent-300: #67e8f9;
-  --color-accent-400: #22d3ee;
-  --color-accent-500: #06b6d4;
-  --color-accent-600: #0891b2;
-  --color-accent-700: #0e7490;
-  --color-accent-800: #155e75;
-  --color-accent-900: #164e63;
-  --color-accent-950: #083344;
+  --color-accent-50: #ecfeff; --color-accent-100: #cffafe; --color-accent-200: #a5f3fc;
+  --color-accent-300: #67e8f9; --color-accent-400: #22d3ee; --color-accent-500: #06b6d4;
+  --color-accent-600: #0891b2; --color-accent-700: #0e7490; --color-accent-800: #155e75;
+  --color-accent-900: #164e63; --color-accent-950: #083344;
 }
-
 [data-color="orange"] {
-  --color-accent-50: #fff7ed;
-  --color-accent-100: #ffedd5;
-  --color-accent-200: #fed7aa;
-  --color-accent-300: #fdba74;
-  --color-accent-400: #fb923c;
-  --color-accent-500: #f97316;
-  --color-accent-600: #ea580c;
-  --color-accent-700: #c2410c;
-  --color-accent-800: #9a3412;
-  --color-accent-900: #7c2d12;
-  --color-accent-950: #431407;
+  --color-accent-50: #fff7ed; --color-accent-100: #ffedd5; --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74; --color-accent-400: #fb923c; --color-accent-500: #f97316;
+  --color-accent-600: #ea580c; --color-accent-700: #c2410c; --color-accent-800: #9a3412;
+  --color-accent-900: #7c2d12; --color-accent-950: #431407;
 }
