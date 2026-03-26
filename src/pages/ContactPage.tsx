@@ -21,7 +21,7 @@ export default function ContactPage() {
               { icon: MapPin, label: '住所', value: '東京都渋谷区\n1-2-3' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-5">
-                <Icon className="w-5 h-5 text-violet-400 mb-2" />
+                <Icon className="w-5 h-5 text-accent-400 mb-2" />
                 <p className="text-xs text-zinc-500">{label}</p>
                 <p className="text-sm text-white whitespace-pre-line">{value}</p>
               </div>
