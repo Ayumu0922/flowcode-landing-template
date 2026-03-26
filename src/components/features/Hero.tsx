@@ -11,7 +11,7 @@ export default function Hero() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-500/10 text-accent-400 text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" /> 新機能リリース
           </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+          <h1 className="text-5xl md:text-7xl font-black text-foreground leading-tight mb-6">
             ビジネスを<br />
             <span className="bg-gradient-to-r from-accent-400 to-blue-400 bg-clip-text text-transparent">次のレベル</span>へ
           </h1>
@@ -20,7 +20,7 @@ export default function Hero() {
             直感的な操作で、複雑なワークフローを簡単に自動化できます。
           </p>
           <div className="flex items-center justify-center gap-4">
-            <Link to="/pricing" className="bg-accent-600 hover:bg-accent-500 text-white px-8 py-3.5 rounded-xl font-semibold transition-colors flex items-center gap-2">
+            <Link to="/pricing" className="bg-accent-600 hover:bg-accent-500 text-on-accent px-8 py-3.5 rounded-xl font-semibold transition-colors flex items-center gap-2">
               無料で始める <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/features" className="border border-zinc-700 hover:border-zinc-600 text-zinc-300 px-8 py-3.5 rounded-xl font-semibold transition-colors">

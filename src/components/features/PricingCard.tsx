@@ -19,10 +19,10 @@ export default function PricingCard({ name, price, period, description, features
           : 'bg-zinc-900/50 border border-zinc-800'
       }`}
     >
-      <h3 className="text-lg font-bold text-white">{name}</h3>
+      <h3 className="text-lg font-bold text-foreground">{name}</h3>
       <p className="text-sm text-zinc-500 mt-1">{description}</p>
       <div className="mt-6 mb-6">
-        <span className="text-4xl font-black text-white">{price}</span>
+        <span className="text-4xl font-black text-foreground">{price}</span>
         <span className="text-zinc-500">{period}</span>
       </div>
       <ul className="space-y-3 mb-8 flex-1">
@@ -34,7 +34,7 @@ export default function PricingCard({ name, price, period, description, features
         ))}
       </ul>
       <button className={`w-full py-3 rounded-xl font-semibold transition-colors ${
-        highlighted ? 'bg-accent-600 hover:bg-accent-500 text-white' : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300'
+        highlighted ? 'bg-accent-600 hover:bg-accent-500 text-on-accent' : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300'
       }`}>
         {cta}
       </button>

@@ -9,7 +9,7 @@ export default function TestimonialCard({ name, role, content, avatar }: Props) 
           {avatar}
         </div>
         <div>
-          <p className="text-sm font-semibold text-white">{name}</p>
+          <p className="text-sm font-semibold text-foreground">{name}</p>
           <p className="text-xs text-zinc-500">{role}</p>
         </div>
       </div>

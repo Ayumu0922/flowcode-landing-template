@@ -9,8 +9,8 @@ export default function Footer() {
           <span className="text-sm">© 2024 SaaSify. All rights reserved.</span>
         </div>
         <div className="flex gap-6 text-sm text-zinc-500">
-          <a href="#" className="hover:text-white transition-colors">プライバシー</a>
-          <a href="#" className="hover:text-white transition-colors">利用規約</a>
+          <a href="#" className="hover:text-foreground transition-colors">プライバシー</a>
+          <a href="#" className="hover:text-foreground transition-colors">利用規約</a>
         </div>
       </div>
     </footer>

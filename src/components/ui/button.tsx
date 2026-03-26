@@ -10,7 +10,7 @@ export default function Button({ variant = 'primary', className, children, ...pr
     <button
       className={cn(
         'px-6 py-3 rounded-xl font-semibold transition-colors',
-        variant === 'primary' ? 'bg-accent-600 hover:bg-accent-500 text-white' : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300',
+        variant === 'primary' ? 'bg-accent-600 hover:bg-accent-500 text-on-accent' : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-300',
         className
       )}
       {...props}
